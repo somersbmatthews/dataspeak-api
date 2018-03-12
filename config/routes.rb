@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 	
 
+  resources :tickers
 	resources :users do
 	  collection do
 	    post 'login'

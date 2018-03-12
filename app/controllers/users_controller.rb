@@ -123,7 +123,7 @@ class UsersController < ApplicationController
 
    
     def payload
-      payload = JSON.parse(request.body.read).symbolize_keys
+      payload = params
       payload
     end
 
