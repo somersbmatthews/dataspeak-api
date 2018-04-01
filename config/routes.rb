@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 	
 
+  resources :sessions
   resources :tickers
 	resources :users do
 	  collection do

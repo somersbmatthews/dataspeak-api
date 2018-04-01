@@ -122,9 +122,8 @@ class UsersController < ApplicationController
     end
 
    
-    def payload
-      payload = params
-      payload
+    def portfolio_params
+      params.require(:users).permit(:user_name, :user_id)
     end
 
 end

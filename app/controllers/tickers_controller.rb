@@ -56,11 +56,45 @@ class TickersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def ticker_params
-      
-      payload = params["_json"]
-      
-      puts "========"
-      puts payload
-      puts "========"
+      params.require(:ticker).permit(:company_name)
     end
+
+    def make_nasdaq_hash
+      @JSON_file = File.read('./nasdaq.json')
+      @array_of_objects = JSON.parse(@JSON_file)
+      @string_of_array = " "'" + #{@array_of_objects} + "'" "
+      @output = File.new('nasdaq_hash.rb', 'w')
+      @output.write(@string_of_objects)
+      # File.open(output, 'w') do |f|
+
+        # f.puts('[')
+        # array_of_objects.each_with_index do |index|
+        #   element = hash_data[index]
+        #   f.write
+        #   f.write(element)
+        # end
+        # f.puts(']')
+      # end
+    end
+
+    def make_nyse_hash
+      @JSON_file = File.read('./nyse.json')
+      @array_of_objects = JSON.parse(@JSON_file)
+      @string_of_array = " "'" + #{@array_of_objects} + "'" "
+      @output = File.new('nyse_hash.rb', 'w')
+      @output.write(@string_of_objects)
+      # File.open(output, 'w') do |f|
+        # f.puts('[')
+        # array_of_objects.each_with_index do |index|
+        #   element = hash_data[index]
+        #   f.puts(element['Symbol'])
+        #   f.write(':')
+        #   f.write('')
+        # end
+        # f.puts(']')
+      # end
+      
+    end
+
+
 end
