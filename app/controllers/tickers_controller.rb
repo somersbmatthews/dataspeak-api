@@ -64,7 +64,7 @@ class TickersController < ApplicationController
       @array_of_objects = JSON.parse(@JSON_file)
       @string_of_array = " "'" + #{@array_of_objects} + "'" "
       @output = File.new('nasdaq_hash.rb', 'w')
-      @output.write(@string_of_objects)
+      @output.write(@string_of_array)
       # File.open(output, 'w') do |f|
 
         # f.puts('[')
@@ -82,7 +82,7 @@ class TickersController < ApplicationController
       @array_of_objects = JSON.parse(@JSON_file)
       @string_of_array = " "'" + #{@array_of_objects} + "'" "
       @output = File.new('nyse_hash.rb', 'w')
-      @output.write(@string_of_objects)
+      @output.write(@string_of_array)
       # File.open(output, 'w') do |f|
         # f.puts('[')
         # array_of_objects.each_with_index do |index|
